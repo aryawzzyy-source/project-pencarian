@@ -7,7 +7,7 @@ Prodi      : Teknik Informatika 2/1
 Pertemuan  : 13
 
 Deskripsi Project
-Project ini merupakan aplikasi web sederhana untuk melakukan pencarian data produk menggunakan:
+Project ini merupakan aplikasi web sederhana yang digunakan untuk melakukan pencarian data produk menggunakan:
 1. HTML
 2. CSS
 3. PHP
