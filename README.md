@@ -76,7 +76,7 @@ produk
 ## 📂 Struktur Folder Project
 
 ```
-project-pencarian/
+pencarian/
 │
 ├── index.html
 ├── search.php
