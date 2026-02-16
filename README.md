@@ -5,19 +5,23 @@
 
 ## 📖 Deskripsi Project
 
-Project ini merupakan aplikasi web sederhana untuk melakukan **pencarian data produk** berbasis web menggunakan:
+Project ini merupakan implementasi **Sistem Pencarian Data Produk** berbasis web menggunakan:
 
-- HTML  
-- CSS  
+- HTML5  
+- CSS3  
 - PHP Native  
 - MySQL  
 - XAMPP  
 
-Sistem memungkinkan pengguna melakukan pencarian produk berdasarkan **nama produk** atau **deskripsi produk** menggunakan metode `GET`.
+Aplikasi memungkinkan pengguna melakukan pencarian produk berdasarkan **nama produk** atau **deskripsi produk** menggunakan metode `GET`.
 
-Proses pencarian menggunakan operator `LIKE` serta **Prepared Statement (mysqli)** untuk mencegah serangan SQL Injection.
+Proses pencarian memanfaatkan:
 
-Aplikasi ini juga mendukung penyimpanan **gambar produk** yang tersimpan dalam folder:
+- Operator SQL `LIKE`
+- Wildcard `%`
+- **Prepared Statement (mysqli)** untuk mencegah SQL Injection
+
+Sistem ini juga mendukung penyimpanan gambar produk dalam folder:
 
 ```
 uploads/produk/
@@ -42,34 +46,36 @@ produk
 | Field        | Type           | Keterangan |
 |--------------|---------------|------------|
 | id           | INT           | Primary Key, Auto Increment |
-| nama_produk  | VARCHAR(100)  | Nama produk |
+| nama_produk  | VARCHAR(100)  | Nama produk (NOT NULL) |
 | deskripsi    | VARCHAR(2000) | Deskripsi produk |
 | harga        | INT           | Harga produk |
 | foto         | VARCHAR(255)  | Nama file gambar (nullable) |
 
 ---
 
-## 📝 Data Dummy
+## 📝 Query Insert Data Dummy
 
-| No | Nama Produk | Harga |
-|----|-------------|--------|
-| 1 | Laptop ASUS | Rp 15.000.000 |
-| 2 | Smartphone Samsung | Rp 7.000.000 |
-| 3 | Headset Logitech | Rp 1.200.000 |
-| 4 | Monitor LG | Rp 2.500.000 |
-| 5 | Keyboard Mechanical | Rp 900.000 |
+```sql
+INSERT INTO produk (nama_produk, deskripsi, harga) VALUES
+('Laptop ASUS', 'Laptop gaming dengan spesifikasi tinggi', 15000000),
+('Smartphone Samsung', 'Smartphone dengan kamera terbaik', 7000000),
+('Headset Logitech', 'Headset gaming dengan suara jernih', 1200000),
+('Monitor LG', 'Monitor LED 24 inci Full HD', 2500000),
+('Keyboard Mechanical', 'Keyboard dengan switch Cherry MX', 900000);
+```
 
 ---
 
 ## 🔎 Fitur Sistem
 
-- ✅ Form pencarian produk  
-- ✅ Pencarian berdasarkan keyword  
-- ✅ Prepared Statement (mysqli)  
-- ✅ Menampilkan hasil pencarian secara dinamis  
-- ✅ Format harga dalam Rupiah  
-- ✅ Validasi input tidak boleh kosong  
-- ✅ Mendukung upload & penyimpanan gambar produk  
+- ✅ Form pencarian produk
+- ✅ Pencarian berdasarkan keyword
+- ✅ Partial match menggunakan LIKE
+- ✅ Prepared Statement (mysqli)
+- ✅ Menampilkan hasil pencarian secara dinamis
+- ✅ Format harga dalam Rupiah (`number_format`)
+- ✅ Validasi input tidak boleh kosong
+- ✅ Sanitasi output menggunakan `htmlspecialchars()`
 
 ---
 
@@ -80,7 +86,6 @@ pencarian/
 │
 ├── index.html
 ├── search.php
-├── db_pencarian.sql
 ├── uploads/
 │   └── produk/
 └── README.md
@@ -91,7 +96,7 @@ pencarian/
 ## ⚙ Cara Instalasi & Menjalankan Project
 
 ### 1️⃣ Install XAMPP
-Download dan install dari:
+Download dari:
 ```
 https://www.apachefriends.org/
 ```
@@ -103,21 +108,18 @@ Aktifkan:
 
 ### 3️⃣ Import Database
 
-1. Buka browser:
+1. Buka:
 ```
 http://localhost/phpmyadmin
 ```
 
-2. Buat database baru:
+2. Buat database:
 ```
 db_pencarian
 ```
 
-3. Klik tab **Import**
-4. Upload file:
-```
-db_pencarian.sql
-```
+3. Klik tab **SQL**
+4. Jalankan script CREATE TABLE dan INSERT data dummy
 
 ### 4️⃣ Jalankan Project
 
@@ -135,12 +137,27 @@ http://localhost/project-pencarian/
 
 ## 🔐 Keamanan Sistem
 
-Sistem menerapkan beberapa mekanisme keamanan dasar:
+Sistem menerapkan praktik keamanan dasar:
 
-- Prepared Statement (mysqli) untuk mencegah SQL Injection  
+- Prepared Statement untuk mencegah SQL Injection  
 - Validasi input pengguna  
-- Penggunaan `htmlspecialchars()` untuk mencegah XSS  
-- Struktur database dengan Primary Key dan tipe data yang sesuai  
+- `htmlspecialchars()` untuk mencegah XSS  
+- Query terstruktur dan aman  
+- Koneksi database menggunakan mysqli  
+
+---
+
+## 📌 Konsep yang Dipelajari
+
+Project ini membantu memahami:
+
+- Konsep Database Relasional  
+- Perintah SQL (SELECT dengan LIKE)  
+- Prepared Statement  
+- Integrasi HTML, CSS, dan PHP  
+- Metode GET dalam pengiriman data  
+- Format angka menggunakan `number_format()`  
+- Keamanan dasar aplikasi web  
 
 ---
 
@@ -150,16 +167,11 @@ Aplikasi pencarian produk berhasil diimplementasikan menggunakan PHP Native dan 
 
 - Dinamis  
 - Aman  
-- Terstruktur dengan baik  
-- Mendukung pencarian data dan penyimpanan gambar  
+- Terstruktur  
+- Sesuai dengan materi Pertemuan 13  
 
-Project ini membantu memahami konsep:
-
-- Koneksi database dengan PHP  
-- Query pencarian menggunakan operator LIKE  
-- Prepared Statement  
-- Integrasi HTML, CSS, PHP, dan MySQL  
+Project ini memperkuat pemahaman tentang pencarian data berbasis web dan pengamanan query menggunakan prepared statement.
 
 ---
 
-✍ Dibuat untuk memenuhi tugas Mata Kuliah **Pemrograman Internet**.
+✍ Dibuat untuk memenuhi tugas Mata Kuliah **Pemrograman Internet – Pertemuan 13**
