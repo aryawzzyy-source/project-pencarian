@@ -1,17 +1,5 @@
-# 📌 TUGAS PEMROGRAMAN INTERNET
+# 📌 TUGAS PEMROGRAMAN INTERNET  
 ## 🔎 Sistem Pencarian Produk Menggunakan PHP Native dan MySQL
-
----
-
-## 👤 Identitas Mahasiswa
-
-| Keterangan | Data |
-|------------|------|
-| Nama | Ariya Wijaya |
-| NIM | 20251020035 |
-| Program Studi | Teknik Informatika 2/1 |
-| Mata Kuliah | Pemrograman Internet |
-| Pertemuan | 13 |
 
 ---
 
@@ -19,30 +7,35 @@
 
 Project ini merupakan aplikasi web sederhana untuk melakukan **pencarian data produk** berbasis web menggunakan:
 
-- HTML
-- CSS
-- PHP Native
-- MySQL
-- XAMPP
+- HTML  
+- CSS  
+- PHP Native  
+- MySQL  
+- XAMPP  
 
-Sistem memungkinkan pengguna mencari produk berdasarkan **nama produk** atau **deskripsi produk** menggunakan metode `GET`.
+Sistem memungkinkan pengguna melakukan pencarian produk berdasarkan **nama produk** atau **deskripsi produk** menggunakan metode `GET`.
 
-Pencarian menggunakan operator `LIKE` dan **Prepared Statement (mysqli)** untuk mencegah SQL Injection.
+Proses pencarian menggunakan operator `LIKE` serta **Prepared Statement (mysqli)** untuk mencegah serangan SQL Injection.
 
-Project ini juga mendukung penyimpanan **gambar produk** yang tersimpan dalam folder `uploads/produk/`.
+Aplikasi ini juga mendukung penyimpanan **gambar produk** yang tersimpan dalam folder:
+
+```
+uploads/produk/
+```
 
 ---
 
 ## 🗄 Struktur Database
 
 ### 📌 Nama Database
-
+```
 db_pencarian
+```
 
 ### 📌 Nama Tabel
-
+```
 produk
-
+```
 
 ### 📌 Struktur Tabel
 
@@ -52,7 +45,7 @@ produk
 | nama_produk  | VARCHAR(100)  | Nama produk |
 | deskripsi    | VARCHAR(2000) | Deskripsi produk |
 | harga        | INT           | Harga produk |
-| foto         | VARCHAR(255)  | Nama file gambar produk (nullable) |
+| foto         | VARCHAR(255)  | Nama file gambar (nullable) |
 
 ---
 
@@ -70,92 +63,103 @@ produk
 
 ## 🔎 Fitur Sistem
 
-- ✅ Form pencarian produk
-- ✅ Pencarian berdasarkan keyword
-- ✅ Prepared Statement (mysqli)
-- ✅ Menampilkan hasil pencarian dinamis
-- ✅ Format harga dalam Rupiah
-- ✅ Validasi input tidak boleh kosong
-- ✅ Mendukung penyimpanan gambar produk
+- ✅ Form pencarian produk  
+- ✅ Pencarian berdasarkan keyword  
+- ✅ Prepared Statement (mysqli)  
+- ✅ Menampilkan hasil pencarian secara dinamis  
+- ✅ Format harga dalam Rupiah  
+- ✅ Validasi input tidak boleh kosong  
+- ✅ Mendukung upload & penyimpanan gambar produk  
 
 ---
 
 ## 📂 Struktur Folder Project
 
+```
 project-pencarian/
 │
 ├── index.html
 ├── search.php
 ├── db_pencarian.sql
 ├── uploads/
-│ └── produk/
+│   └── produk/
 └── README.md
+```
+
+---
 
 ## ⚙ Cara Instalasi & Menjalankan Project
 
 ### 1️⃣ Install XAMPP
 Download dan install dari:
-
+```
 https://www.apachefriends.org/
+```
 
 ### 2️⃣ Jalankan Server
 Aktifkan:
-- Apache
-- MySQL
+- Apache  
+- MySQL  
 
 ### 3️⃣ Import Database
 
 1. Buka browser:
-
+```
 http://localhost/phpmyadmin
+```
 
 2. Buat database baru:
-
+```
 db_pencarian
+```
 
 3. Klik tab **Import**
 4. Upload file:
-
-db_pencarian
-
+```
+db_pencarian.sql
+```
 
 ### 4️⃣ Jalankan Project
 
 1. Simpan folder project di:
+```
+C:/xampp/htdocs/
+```
 
-c:/xampp/htdocs/
-
-2. Buka browser:
-
-http://localhost/pencarian
-
+2. Akses melalui browser:
+```
+http://localhost/project-pencarian/
+```
 
 ---
 
 ## 🔐 Keamanan Sistem
 
-Sistem menggunakan:
+Sistem menerapkan beberapa mekanisme keamanan dasar:
 
-- Prepared Statement (mysqli)
-- Validasi input
-- Fungsi `htmlspecialchars()` untuk mencegah XSS
-- Struktur database terorganisir dengan Primary Key
+- Prepared Statement (mysqli) untuk mencegah SQL Injection  
+- Validasi input pengguna  
+- Penggunaan `htmlspecialchars()` untuk mencegah XSS  
+- Struktur database dengan Primary Key dan tipe data yang sesuai  
+
+---
 
 ## 📌 Kesimpulan
 
 Aplikasi pencarian produk berhasil diimplementasikan menggunakan PHP Native dan MySQL dengan sistem yang:
 
-- Dinamis
-- Aman
-- Terstruktur dengan baik
-- Mendukung pencarian dan penyimpanan gambar
+- Dinamis  
+- Aman  
+- Terstruktur dengan baik  
+- Mendukung pencarian data dan penyimpanan gambar  
 
 Project ini membantu memahami konsep:
-- Koneksi database dengan PHP
-- Query pencarian menggunakan LIKE
-- Prepared Statement
-- Integrasi HTML, CSS, PHP, dan MySQL
+
+- Koneksi database dengan PHP  
+- Query pencarian menggunakan operator LIKE  
+- Prepared Statement  
+- Integrasi HTML, CSS, PHP, dan MySQL  
 
 ---
 
-✍ Dibuat untuk memenuhi tugas Mata Kuliah Pemrograman Internet.
+✍ Dibuat untuk memenuhi tugas Mata Kuliah **Pemrograman Internet**.
