@@ -130,7 +130,7 @@ C:/xampp/htdocs/
 
 2. Akses melalui browser:
 ```
-http://localhost/project-pencarian/
+http://localhost/pencarian/
 ```
 
 ---
