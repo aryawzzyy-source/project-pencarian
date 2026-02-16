@@ -7,8 +7,8 @@
 
 Project ini merupakan implementasi **Sistem Pencarian Data Produk** berbasis web menggunakan:
 
-- HTML5  
-- CSS3  
+- HTML  
+- CSS  
 - PHP Native  
 - MySQL  
 - XAMPP  
